@@ -16,8 +16,10 @@ module.exports = {
         }
     },
     logout: (req , res , next) => {
-        req.logout();
-        res.redirect('/');
+        if(req.user._id == req.params.id){
+            req.logout();
+            res.redirect('/');
+        }
     },
     checkNotLogged: (req , res , next) => {
         next();

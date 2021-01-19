@@ -38,7 +38,7 @@ router.put('/user/:id/edit', parseUrlencoded, authentication.isLoggedIn,
                                           authorization.checkUserOwnership,
                                           editusercontroller.UpdateUser);
 router.delete('/user/:id/delete', parseUrlencoded, editusercontroller.DeleteUser);
-router.get('/user/logout', parseUrlencoded, authentication.isLoggedIn,
+router.get('/user/:id/logout', parseUrlencoded, authentication.isLoggedIn,
                                             authentication.logout);
 router.get('/companies/get', parseUrlencoded, getcompcontroller.getCompanies);
 router.get('/company/:id', parseUrlencoded, getcompcontroller.showCompany);
