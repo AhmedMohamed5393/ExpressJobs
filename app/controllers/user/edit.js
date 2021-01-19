@@ -23,7 +23,7 @@ module.exports = {
                     name: req.body.name,
                     email: req.body.email,
                     address: req.body.address,
-                    phone: req.body.phone,
+                    phone: hash,
                     target: req.user.target,
                     work: req.body.work,
                     skills: req.body.skills,
