@@ -33,7 +33,6 @@ module.exports = {
                         companies.splice(0, companies.length);
                         jobs.splice(0, jobs.length);
                         foundcompanies.forEach(company => {
-                            company.jobs.sort({ startdate: -1 });
                             companies.push(company);
                         });
                         companies.forEach(company => {
@@ -65,7 +64,6 @@ module.exports = {
                     companies.splice(0, companies.length);
                     jobs.splice(0, jobs.length);
                     foundcompanies.forEach(company => {
-                        company.jobs.sort({ startdate: -1 });
                         companies.push(company);
                     });
                     companies.forEach(company => {
