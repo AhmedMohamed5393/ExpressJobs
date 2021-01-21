@@ -8,10 +8,7 @@ module.exports = (passport) => {
         passReqToCallback : true
     }, (req, name, phone, done) => {
         User.findOne({
-            $and: [
-                { name: name },
-                { phone: phone }
-            ]
+            name: name
         }).then(user => {
             if (!user) {
                 return done(null, false, {
