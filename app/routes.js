@@ -21,7 +21,6 @@ router.use(methodOverride('_method'));
 router.get('/', parseUrlencoded, maincontroller.GetHomePage);
 router.get('/:page', parseUrlencoded, maincontroller.GetHomePage);
 router.get('/users/get', parseUrlencoded, authentication.isLoggedIn,
-                                          authorization.checkAdminOwnership,
                                           getusercontroller.showUsers);
 router.get('/user/login', parseUrlencoded, authentication.notLoggedIn,
                                            signincontroller.GetSignInPage);
