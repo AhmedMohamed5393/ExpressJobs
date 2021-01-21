@@ -4,7 +4,7 @@ module.exports = {
     checkAdminCompanyOwnership: (req, res, next) => {
         var errors = [];
         if(req.isAuthenticated()){
-            if(req.user.phone == "201110095420"){
+            if(req.user.target == "admin"){
                 Company.find()
                 .then(companies => {
                     next();
@@ -24,24 +24,12 @@ module.exports = {
     },
     checkAdminOwnership: (req, res, next) => {
         var errors = [];
-        User.find().then(users => {
-            next();
-        }).catch(err => {
-            errors.push({ msg: err.msg });
-        });
-    },
-    checkAllOwnership: (req, res, next) => {
-        var errors = [];
-        if(req.isAuthenticated()){
-            if(req.user.phone == "201110095420" ||
-               req.user._id == req.params.id ||
-               req.user.target == "company"){
-                User.findById(req.params.id).then(user => {
-                    next();
-                }).catch(err => {
-                    errors.push({ msg: err.msg });
-                });
-            }
+        if(isAuthenticated() && req.user.target == "admin"){
+            User.find().then(users => {
+                next();
+            }).catch(err => {
+                errors.push({ msg: err.msg });
+            });
         }
     },
     checkUserOwnership: (req, res, next) => {

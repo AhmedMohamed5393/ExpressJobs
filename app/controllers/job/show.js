@@ -28,17 +28,22 @@ module.exports = {
                             user.address.city == company.address.city &&
                             user.address.country == company.address.country))){
                             user.work.forEach(work => {
-                                if(work.title == job.work.title){
-                                    if(work.experience >= job.work.experience.from ||
-                                       work.experience <= job.work.experience.to){
-                                        if(!workarr.includes(work)){
-                                            workarr.push(work);
+                                job.work.forEach(jwork => {
+                                    if(work.title == job.work.title){
+                                        if(work.experience >=
+                                             jwork.experience.from ||
+                                           work.experience <=
+                                             jwork.experience.to){
+                                            if(!workarr.includes(work)){
+                                                workarr.push(work);
+                                            }
                                         }
                                     }
-                                }
+                                });
                             });
-                            var wper = workarr.length * 100 / job.work.length;
-                            percent.push(wper);
+                            if(workarr.length > 0){
+                                percent.push(100);
+                            }
                             user.skills.education.forEach(education => {
                                 if(education.specifications.major
                                     == job.skills.specifications.major ||
@@ -63,9 +68,9 @@ module.exports = {
                                     }
                                 }
                             });
-                            var eper = eduarr.length * 100 / job.skills
-                                                                .education.length;
-                            percent.push(eper);
+                            if(eduarr.length > 0){
+                                percent.push(100);
+                            }
                             user.skills.technical.forEach(utechnical => {
                                 job.skills.technical.forEach(jtechnical => {
                                     if(utechnical.name == jtechnical.name){
@@ -119,9 +124,8 @@ module.exports = {
                                 });
                             }
                             if((ismatch.length == percent.length) &&
-                               (job.age.from == null || job.age.to == null ||
-                               (job.age.from <= functions.getAge(user.birthdate) &&
-                                job.age.to >= functions.getAge(user.birthdate)))){
+                               job.age.from <= functions.getAge(user.birthdate) &&
+                               job.age.to >= functions.getAge(user.birthdate)){
                                 myjobs.push(job);
                             }
                         }

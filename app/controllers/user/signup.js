@@ -33,10 +33,15 @@ module.exports = {
                   birthdate: null,
                   startdate: Date.now()
               });
-          User.findOne({ name: name }).then(user => {
+          User.findOne({
+              $or: [
+                { name: name },
+                { phone: phone }
+              ]
+          }).then(user => {
             if(user){
               errors.push({ msg: 'This user is already exists' });
-              res.json({ errors });
+              res.json(errors);
             }else{
               bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(phone, salt, (err, hash) => {

@@ -72,7 +72,6 @@ router.put('/job/:job/:company/delete', parseUrlencoded,
                                         ujobcontroller.deleteJob);
 router.post('/proposal/:job/:company', parseUrlencoded,
                                        authentication.isLoggedIn,
-                                       authorization.checkAllOwnership,
                                        cjobcontroller.submitJob);
 router.put('/proposal/:proposal/:job/:company/delete',
             parseUrlencoded,
