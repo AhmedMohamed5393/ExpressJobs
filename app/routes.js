@@ -38,7 +38,7 @@ router.put('/user/:id/edit', parseUrlencoded, authentication.isLoggedIn,
                                           editusercontroller.UpdateUser);
 router.delete('/user/:id/delete', parseUrlencoded, editusercontroller.DeleteUser);
 router.get('/user/:id/logout', parseUrlencoded, authentication.isLoggedIn,
-                                            authentication.logout);
+                                                authentication.logout);
 router.get('/companies/get', parseUrlencoded, getcompcontroller.getCompanies);
 router.get('/company/:id', parseUrlencoded, getcompcontroller.showCompany);
 router.post('/company/new', parseUrlencoded, authentication.isLoggedIn,
@@ -55,8 +55,9 @@ router.delete('/company/:id', parseUrlencoded,
                               authentication.isLoggedIn,
                               authorization.checkAdminCompanyOwnership,
                               ucompanycontroller.deleteCompany);
-router.get('/jobs/suitable', parseUrlencoded, authentication.isLoggedIn,
-                                              getjobscontroller.suitableJobs);
+router.get('/jobs/:user/suitable', parseUrlencoded, authentication.isLoggedIn,
+                                                    authorization.checkUserOwnership,
+                                                    getjobscontroller.suitableJobs);
 router.post('/job/:company', parseUrlencoded,
                              authentication.isLoggedIn,
                              authorization.checkAdminCompanyOwnership,

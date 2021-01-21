@@ -12,7 +12,7 @@ module.exports = {
             percent = [],
             ismatch = [],
             myjobs  = [];
-        User.findById(req.user._id).then(user => {
+        User.findById(req.params.user).then(user => {
             myjobs.splice(0, myjobs.length);
             Company.find().then(foundcompanies => {
                 foundcompanies.forEach(company => {
