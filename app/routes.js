@@ -55,9 +55,9 @@ router.delete('/company/:id', parseUrlencoded,
                               authentication.isLoggedIn,
                               authorization.checkAdminCompanyOwnership,
                               ucompanycontroller.deleteCompany);
-router.get('/jobs/:user/suitable', parseUrlencoded, authentication.isLoggedIn,
-                                                    authorization.checkUserOwnership,
-                                                    getjobscontroller.suitableJobs);
+router.get('/jobs/suitable', parseUrlencoded, authentication.isLoggedIn,
+                                              authorization.checkUserOwnership,
+                                              getjobscontroller.suitableJobs);
 router.post('/job/:company', parseUrlencoded,
                              authentication.isLoggedIn,
                              authorization.checkAdminCompanyOwnership,
