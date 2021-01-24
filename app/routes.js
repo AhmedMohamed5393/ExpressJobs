@@ -7,6 +7,7 @@ var express            = require('express'),
     authorization      = require('./middlewares/authorization'),
     signupcontroller   = require('./controllers/user/signup'),
     signincontroller   = require('./controllers/user/login'),
+    verifycontroller   = require('./controllers/user/verify'),
     profilecontroller  = require('./controllers/user/profile'),
     editusercontroller = require('./controllers/user/edit'),
     getusercontroller  = require('./controllers/user/get'),
@@ -26,6 +27,8 @@ router.get('/user/login', parseUrlencoded, authentication.notLoggedIn,
                                            signincontroller.GetSignInPage);
 router.post('/user/signup', parseUrlencoded, authentication.notLoggedIn,
                                              signupcontroller.PostSignUpPage);
+router.get('/user/verify/get', parseUrlencoded, verifycontroller.getVerifyPage);
+router.post('/user/verify/post', parseUrlencoded, verifycontroller.verifyUser);
 router.post('/user/login', parseUrlencoded, authentication.notLoggedIn,
                                             signincontroller.PostSignInPage);
 router.get('/user/:id', parseUrlencoded, authentication.isLoggedIn,

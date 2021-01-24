@@ -16,9 +16,16 @@ var mongoose              = require('mongoose'),
             country: String
         },
         phone: {
-            type: String,
-            required: true,
-            unique: true
+            code: {
+                type: String,
+                required: true,
+                unique: false
+            },
+            number: {
+                type: Number,
+                required: true,
+                unique: true
+            }
         },
         target: {
             type: String,
