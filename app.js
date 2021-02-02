@@ -41,6 +41,13 @@ app.use((req , res , next) => {
     res.locals.error = req.flash('error');
     next();
 });
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers',
+                  'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization');
+    next();
+});
 app.use(routes);
 app.use((req, res, next) => {
     var err = new Error('Not Found');
