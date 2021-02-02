@@ -3,7 +3,6 @@ var express      = require('express'),
     bodyParser   = require('body-parser'),
     cookieParser = require('cookie-parser'),
     passport     = require('passport'),
-    mongoose     = require('mongoose'),
     flash        = require('connect-flash'),
     session      = require('express-session'),
     mongostore   = require('connect-mongo')(session),
@@ -39,13 +38,6 @@ app.use((req , res , next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
-    next();
-});
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers',
-                  'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization');
     next();
 });
 app.use(routes);
