@@ -17,7 +17,7 @@ var mongoose              = require('mongoose'),
         },
         phone: {
             code: {
-                type: String,
+                type: Number,
                 required: true,
                 unique: false
             },

@@ -27,8 +27,8 @@ router.get('/user/login', parseUrlencoded, authentication.notLoggedIn,
                                            signincontroller.GetSignInPage);
 router.post('/user/signup', parseUrlencoded, authentication.notLoggedIn,
                                              signupcontroller.PostSignUpPage);
-router.get('/user/verify/get', parseUrlencoded, verifycontroller.getVerifyPage);
-router.post('/user/verify/post', parseUrlencoded, verifycontroller.verifyUser);
+// router.get('/user/verify/get', parseUrlencoded, verifycontroller.getVerifyPage);
+// router.post('/user/verify/post', parseUrlencoded, verifycontroller.verifyUser);
 router.post('/user/login', parseUrlencoded, authentication.notLoggedIn,
                                             signincontroller.PostSignInPage);
 router.get('/user/:id', parseUrlencoded, authentication.isLoggedIn,
