@@ -1,5 +1,7 @@
 # ExpressJobs
 
+# Getting started
+
 To install node_modules you should install express with this command:
 npm i --save express
 
@@ -11,6 +13,18 @@ In addition, each of the following routes should be added to the above link
 
 Note: // "/:page" is a route we use for the page pagination
       // instead of :page we write a page number as 1,2, 3, ... and so on
+
+
+# API Documentation
+
+You'll find 4 files contains the documentation of each collection.
+paths: './app/collections/api/Company/Company.postman_collection.json',
+       './app/collections/api/Company/Job.postman_collection.json',
+       './app/collections/api/Company/Proposal.postman_collection.json',
+       './app/collections/api/User/User.postman_collection.json'
+
+
+# Routes
 
 // user routes
 
@@ -48,7 +62,7 @@ POST   /proposal/:proposal/:job/:company  // we use it to create a new proposal
 PUT    /proposal/:proposal/:job/:company  // we use it to delete this proposal
 
 
-In this project, we have two collections which are:
+# Collections
 
 1. user collection
 

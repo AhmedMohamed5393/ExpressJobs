@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "be7af670-ace3-4691-957e-e89c6b83fdf0",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ahmed Mohamed\",\r\n    \"code\": 20,\r\n    \"number\": 1204830301,\r\n    \"target\": \"user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{link}}/user/signup",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"name\": \"Ahmed Mohamed\",\r\n    \"phone\": 201204830301\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{link}}/user/login",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "201110095420",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Salah Hussien",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{link}}/user/logout",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "201204830301",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Ahmed Mohamed",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ahmed Mohamed\",\r\n    \"email\": \"ahmedmohamedalex93@gmail.com\",\r\n    \"address\": {\r\n        \"city\": \"Alexandria\",\r\n        \"country\": \"Egypt\"\r\n    },\r\n    \"phone\": \"201204830301\",\r\n    \"target\": \"user\",\r\n    \"work\": [\r\n        {\r\n            \"title\": \"NodeJS developer\",\r\n            \"company\": \"freelancing\",\r\n            \"experience\": 1\r\n        }\r\n    ],\r\n    \"skills\": {\r\n        \"education\": [\r\n            {\r\n                \"school\": \"science\",\r\n                \"gov\": \"alexandria\",\r\n                \"degree\": \"bachelor\",\r\n                \"specifications\": {\r\n                    \"major\": \"mathematics\",\r\n                    \"minor\": \"computer\"\r\n                }\r\n            },\r\n            {\r\n                \"school\": \"vc\",\r\n                \"gov\": \"alexandria\",\r\n                \"degree\": \"senior\",\r\n                \"specifications\": {\r\n                    \"major\": \"scientific\",\r\n                    \"minor\": null\r\n                }\r\n            }\r\n        ],\r\n        \"technical\": [\r\n            {\r\n                \"name\": \"nodejs\",\r\n                \"experience\": 1\r\n            },\r\n            {\r\n                \"name\": \"express\",\r\n                \"experience\": 1\r\n            },\r\n            {\r\n                \"name\": \"mongodb\",\r\n                \"experience\": 1\r\n            },\r\n            {\r\n                \"name\": \"angular\",\r\n                \"experience\": 0\r\n            },\r\n            {\r\n                \"name\": \"java\",\r\n                \"experience\": 1\r\n            },\r\n            {\r\n                \"name\": \"c++\",\r\n                \"experience\": 1\r\n            },\r\n            {\r\n                \"name\": \"php\",\r\n                \"experience\": 0\r\n            },\r\n            {\r\n                \"name\": \"git\",\r\n                \"experience\": 1\r\n            },\r\n            {\r\n                \"name\": \"mysql\",\r\n                \"experience\": 0\r\n            },\r\n            {\r\n                \"name\": \"github\",\r\n                \"experience\": 1\r\n            }\r\n        ],\r\n        \"language\": [\r\n            {\r\n                \"name\": \"english\",\r\n                \"fluency\": 2\r\n            }\r\n        ],\r\n        \"soft\": [\r\n            {\r\n                \"name\": \"communication\",\r\n                \"experience\": 1\r\n            },\r\n            {\r\n                \"name\": \"presentation\",\r\n                \"experience\": 1\r\n            },\r\n            {\r\n                \"name\": \"teamwork\",\r\n                \"experience\": 1\r\n            }\r\n        ]\r\n    },\r\n    \"birthdate\": \"1993-03-05T19:07:20.319Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{link}}/user/:id/edit",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"user",
+						":id",
+						"edit"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6005dc6804a8251f60d995a4",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{link}}/user/:id/delete",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"user",
+						":id",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6009d20c5e99e70004657c22",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "201204830301",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Ahmed Mohamed",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{link}}/users/get",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"users",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{link}}/user/:id",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"user",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6005dc6804a8251f60d995a4",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

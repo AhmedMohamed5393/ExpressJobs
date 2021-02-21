@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "2f283d42-0220-4a1e-9224-59ae2c801260",
+		"name": "Company",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Companies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{link}}/companies/get",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"companies",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Company",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{link}}/company/:id",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"company",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6005aedc42b5730674cc9955"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "201110095420",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Salah Hussien",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": {\r\n        \"city\": \"Alexandria\",\r\n        \"country\": \"Egypt\"\r\n    },\r\n    \"name\": \"Ejada\",\r\n    \"admin\": \"60292a41e012631c180fb9bb\",\r\n    \"description\": \"Is an international company based in Saudi Arabia working in software development, integrating systems and networking\",\r\n    \"email\": \"careers@ejada.ch\",\r\n    \"website\": \"https://ejada.ch\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{link}}/company/new",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"company",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "201110095420",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Salah Hussien",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{link}}/company/:id",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"company",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{link}}/company/:id",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"company",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "faa48882-a079-4c04-891a-e16584ea022e",
+		"name": "Porposal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "201110095420",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Salah Hussien",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"coverletter\": \"I'm Ahmed Mohamed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{link}}/proposal/:job/:company",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"proposal",
+						":job",
+						":company"
+					],
+					"variable": [
+						{
+							"key": "job",
+							"value": "1"
+						},
+						{
+							"key": "company",
+							"value": "6005b40b42b5730674cc9956"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "201110095420",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Salah Hussien",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{link}}/proposal/:proposal/:job/:company/delete",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"proposal",
+						":proposal",
+						":job",
+						":company",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "proposal",
+							"value": ""
+						},
+						{
+							"key": "job",
+							"value": ""
+						},
+						{
+							"key": "company",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

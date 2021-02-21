@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "080883c2-49a2-49df-ba35-5943fee52596",
+		"name": "Job",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Suitable Jobs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{link}}/jobs/suitable",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"jobs",
+						"suitable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "201110095420",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Salah Hussien",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{link}}/job/:company",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"job",
+						":company"
+					],
+					"variable": [
+						{
+							"key": "company",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "201110095420",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Salah Hussien",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{link}}/job/:job/:company",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"job",
+						":job",
+						":company"
+					],
+					"variable": [
+						{
+							"key": "job",
+							"value": ""
+						},
+						{
+							"key": "company",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "201110095420",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Salah Hussien",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{link}}/job/:job/:company/delete",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"job",
+						":job",
+						":company",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "job",
+							"value": ""
+						},
+						{
+							"key": "company",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Proposal",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "201110095420",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Salah Hussien",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{link}}/proposal/:job/:company",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"proposal",
+						":job",
+						":company"
+					],
+					"variable": [
+						{
+							"key": "job",
+							"value": ""
+						},
+						{
+							"key": "company",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Proposal",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "201110095420",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Salah Hussien",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{link}}/proposal/:proposal/:job/:company/delete",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"proposal",
+						":proposal",
+						":job",
+						":company",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "proposal",
+							"value": ""
+						},
+						{
+							"key": "job",
+							"value": ""
+						},
+						{
+							"key": "company",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
