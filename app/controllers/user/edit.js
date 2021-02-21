@@ -3,7 +3,7 @@ var User    = require('../../models/user'),
 module.exports = {
     showEdition: (req, res) => {
         var errors = [];
-        User.findById(req.params.id).then(user => {
+        User.findById(req.user._id).then(user => {
             res.status(200).json({ user: user });
         }).catch(err => {
             req.flash('error_msg', "Sorry, Please try again later");
@@ -19,7 +19,7 @@ module.exports = {
                 if(err){
                     errors.push({ msg: err.message });
                 }
-                User.updateOne({ _id: req.params.id } , {
+                User.updateOne({ _id: req.user._id } , {
                     name: req.body.name,
                     email: req.body.email,
                     address: req.body.address,
@@ -48,7 +48,7 @@ module.exports = {
     },
     DeleteUser: (req, res) => {
         var errors = [];
-        User.findByIdAndDelete(req.params.id).then(deletedUser => {
+        User.findByIdAndDelete(req.use._id).then(deletedUser => {
             req.flash('success_msg', 'This user is deleted successfully');
             res.json({ done: true });
         }).catch(err => {

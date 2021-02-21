@@ -20,9 +20,9 @@ GET   /user/login      // we use it to get the login page
 POST  /user/signup      // we use it to create a new user
 POST  /user/login      // we use it to login user
 GET   /user/:id        // we use it to get the profile page of user with id = :id
-GET   /user/:id/edit   // we use it to get edit page for updating data of this user
-PUT   /user/:id/edit   // we use it to update the user's data
-DELETE  /user/:id/delete  // we use it to delete the user
+GET   /user/edit   // we use it to get edit page for updating data of this user
+PUT   /user/edit   // we use it to update the user's data
+DELETE  /user/delete  // we use it to delete the user
 GET   /user/logout     // we use it to log out the user
 
 // company routes
@@ -148,7 +148,7 @@ startdate: Date
             },                         // of skills for matching with the skills
                                        // of each of the users
             proposals: [{
-                user: String,
+                user: String,           // id of the current user
                 submitdate: Date,       // proposal means the action when the user
                 coverletter: String     // submit a specific job
             }]

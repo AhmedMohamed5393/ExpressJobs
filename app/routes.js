@@ -28,20 +28,20 @@ router.post('/user/signup', parseUrlencoded, authentication.notLoggedIn,
                                              signupcontroller.PostSignUpPage);
 router.post('/user/login', parseUrlencoded, authentication.notLoggedIn,
                                             signincontroller.PostSignInPage);
+router.get('/user/logout', parseUrlencoded, authentication.isLoggedIn,
+                                            authentication.logout);
+router.get('/user/edit', parseUrlencoded, authentication.isLoggedIn,
+                                          authorization.checkUserOwnership,
+                                          editusercontroller.showEdition);
+router.put('/user/edit', parseUrlencoded, authentication.isLoggedIn,
+                                          authorization.checkUserOwnership,
+                                          editusercontroller.UpdateUser);
+router.delete('/user/delete', parseUrlencoded, editusercontroller.DeleteUser);
 router.get('/jobs/suitable', parseUrlencoded, authentication.isLoggedIn,
                                               authorization.checkUserOwnership,
                                               getjobscontroller.suitableJobs);
-router.get('/user/logout', parseUrlencoded, authentication.isLoggedIn,
-                                            authentication.logout);
 router.get('/user/:id', parseUrlencoded, authentication.isLoggedIn,
                                          profilecontroller.GetUserProfile);
-router.get('/user/:id/edit', parseUrlencoded, authentication.isLoggedIn,
-                                              authorization.checkUserOwnership,
-                                              editusercontroller.showEdition);
-router.put('/user/:id/edit', parseUrlencoded, authentication.isLoggedIn,
-                                          authorization.checkUserOwnership,
-                                          editusercontroller.UpdateUser);
-router.delete('/user/:id/delete', parseUrlencoded, editusercontroller.DeleteUser);
 router.get('/companies/get', parseUrlencoded, getcompcontroller.getCompanies);
 router.get('/company/:id', parseUrlencoded, getcompcontroller.showCompany);
 router.post('/company/new', parseUrlencoded, authentication.isLoggedIn,
