@@ -16,7 +16,7 @@ module.exports = {
         }
     },
     logout: (req , res , next) => {
-        if(req.user._id == req.params.id){
+        if(req.user){
             req.logout();
             res.redirect('/');
         }

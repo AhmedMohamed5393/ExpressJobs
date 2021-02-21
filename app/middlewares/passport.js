@@ -15,7 +15,7 @@ module.exports = (passport) => {
                     message: 'This user is not registered'
                 });
             }else{
-                bcrypt.compare(phone, user.phone, (err, isMatch) => {
+                bcrypt.compare(phone.toString(), user.phone, (err, isMatch) => {
                     if (err) throw err;
                     if (isMatch) {
                         req.flash('success_msg', 'You signed in successfully');

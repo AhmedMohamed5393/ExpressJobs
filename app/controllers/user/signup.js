@@ -6,13 +6,14 @@ module.exports = {
         res.status(200).json(message);
     },
     PostSignUpPage: (req, res) => {
-        const { name, phone, target } = req.body;
-        let errors = [];
-        if (!name || !phone || !target) {
+        let { name, target, number, code } = req.body,
+            compnum = code.toString() + number.toString(),
+            errors = [];
+        if (!name || !number || !code || !target) {
           errors.push({ msg: 'Please enter all fields' });
         }
-        if(phone.number.length != 10 || isNaN(parseInt(phone.number)) ||
-           phone.code.length > 5 || isNaN(parseInt(phone.code))){
+        if(number.toString().length != 10 || isNaN(number) ||
+           code.toString().length > 5 || isNaN(code)){
             errors.push({ msg: 'This is not a mobile phone number' });
         }
         if (errors.length > 0) {
@@ -22,7 +23,7 @@ module.exports = {
           User.findOne({
               $or: [
                 { name: name },
-                { phone: { code: phone.code, number: phone.number } }
+                { phone: compnum }
               ]
           }).then(user => {
             if(user){
@@ -32,20 +33,11 @@ module.exports = {
                 var newuser = new User({
                       name: name,
                       target: target,
-                      phone: {
-                        code: phone.code,
-                        number: phone.number
-                      },
-                      email: null,
-                      address: {
-                        city: null,
-                        country: null,
-                      },
-                      birthdate: null,
+                      phone: compnum,
                       startdate: Date.now()
                     });
                 bcrypt.genSalt(10, (err, salt) => {
-                  bcrypt.hash(phone.number, salt, (err, hash) => {
+                  bcrypt.hash(compnum, salt, (err, hash) => {
                       if (err) {
                         req.flash(
                           'error_msg',
@@ -53,9 +45,8 @@ module.exports = {
                         );
                         errors.push({ msg: err.message });
                       }else{
-                        newuser.phone.number = hash;
+                        newuser.phone = hash;
                         newuser.save().then(usercreated => {
-                          
                           req.flash(
                             'success_msg',
                             'You are now registered successfully'

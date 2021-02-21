@@ -17,13 +17,13 @@ module.exports = {
             Company.find().then(foundcompanies => {
                 foundcompanies.forEach(company => {
                     company.jobs.forEach(job => {
-                        workarr.splice(0, workarr.length);
-                        eduarr.splice(0, eduarr.length);
-                        techarr.splice(0, techarr.length);
-                        langarr.splice(0, langarr.length);
-                        softarr.splice(0, softarr.length);
-                        ismatch.splice(0, ismatch.length);
-                        percent.splice(0, percent.length);
+                        // workarr.splice(0, workarr.length);
+                        // eduarr.splice(0, eduarr.length);
+                        // techarr.splice(0, techarr.length);
+                        // langarr.splice(0, langarr.length);
+                        // softarr.splice(0, softarr.length);
+                        // ismatch.splice(0, ismatch.length);
+                        // percent.splice(0, percent.length);
                         if(user.work != [] || user.skills.education != [] ||
                            user.skills.technical != [] ||
                            user.skills.language != [] || user.skills.soft != []){

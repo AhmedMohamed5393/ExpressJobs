@@ -7,7 +7,6 @@ var express            = require('express'),
     authorization      = require('./middlewares/authorization'),
     signupcontroller   = require('./controllers/user/signup'),
     signincontroller   = require('./controllers/user/login'),
-    verifycontroller   = require('./controllers/user/verify'),
     profilecontroller  = require('./controllers/user/profile'),
     editusercontroller = require('./controllers/user/edit'),
     getusercontroller  = require('./controllers/user/get'),
@@ -27,10 +26,13 @@ router.get('/user/login', parseUrlencoded, authentication.notLoggedIn,
                                            signincontroller.GetSignInPage);
 router.post('/user/signup', parseUrlencoded, authentication.notLoggedIn,
                                              signupcontroller.PostSignUpPage);
-// router.get('/user/verify/get', parseUrlencoded, verifycontroller.getVerifyPage);
-// router.post('/user/verify/post', parseUrlencoded, verifycontroller.verifyUser);
 router.post('/user/login', parseUrlencoded, authentication.notLoggedIn,
                                             signincontroller.PostSignInPage);
+router.get('/jobs/suitable', parseUrlencoded, authentication.isLoggedIn,
+                                              authorization.checkUserOwnership,
+                                              getjobscontroller.suitableJobs);
+router.get('/user/logout', parseUrlencoded, authentication.isLoggedIn,
+                                            authentication.logout);
 router.get('/user/:id', parseUrlencoded, authentication.isLoggedIn,
                                          profilecontroller.GetUserProfile);
 router.get('/user/:id/edit', parseUrlencoded, authentication.isLoggedIn,
@@ -40,8 +42,6 @@ router.put('/user/:id/edit', parseUrlencoded, authentication.isLoggedIn,
                                           authorization.checkUserOwnership,
                                           editusercontroller.UpdateUser);
 router.delete('/user/:id/delete', parseUrlencoded, editusercontroller.DeleteUser);
-router.get('/user/:id/logout', parseUrlencoded, authentication.isLoggedIn,
-                                                authentication.logout);
 router.get('/companies/get', parseUrlencoded, getcompcontroller.getCompanies);
 router.get('/company/:id', parseUrlencoded, getcompcontroller.showCompany);
 router.post('/company/new', parseUrlencoded, authentication.isLoggedIn,
@@ -58,9 +58,6 @@ router.delete('/company/:id', parseUrlencoded,
                               authentication.isLoggedIn,
                               authorization.checkAdminCompanyOwnership,
                               ucompanycontroller.deleteCompany);
-router.get('/jobs/suitable', parseUrlencoded, authentication.isLoggedIn,
-                                              authorization.checkUserOwnership,
-                                              getjobscontroller.suitableJobs);
 router.post('/job/:company', parseUrlencoded,
                              authentication.isLoggedIn,
                              authorization.checkAdminCompanyOwnership,
@@ -81,4 +78,4 @@ router.put('/proposal/:proposal/:job/:company/delete',
             authentication.isLoggedIn,
             authorization.checkAdminCompanyOwnership,
             ujobcontroller.deleteProposal);
-module.exports = router;                                                     
+module.exports = router;
